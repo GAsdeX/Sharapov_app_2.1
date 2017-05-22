@@ -2,35 +2,18 @@
 
 <!-- define angular app -->
 <html>
-
 <head>
-<!--
-  <link rel="stylesheet" href="slick-1.6.0/slick/slick.css">
-  <link rel="stylesheet" href="slick-1.6.0/slick/slick-theme.css"> -->
-  <link rel="stylesheet" href="public/styles/style.min.css">
-  <!-- SCROLLS -->
-  <!-- <script src="http://code.jquery.com/jquery-1.7.min.js"></script> -->
-  <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" /> -->
-  <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" /> -->
-
-
-  <!-- SPELLS -->
-
+  <!-- <link rel="stylesheet" href="slick-1.6.0/slick/slick.css"> -->
+  <link rel="stylesheet" href="node_modules/purecss/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/public/styles/style.min.css">
   <script src="node_modules/angular/angular.min.js"></script>
   <script src="node_modules/angular-route/angular-route.js"></script>
 
-
 </head>
 
-
 <!-- define angular controller -->
-<body  >
-
-  <div ng-view>
-  </div>
-
-
-
+<body ng-app="SharapovApp">
+  <ng-view  onload=""  $autoscroll=""></ng-view>
 </body>
 
   <script src="/app/app.js"></script>
