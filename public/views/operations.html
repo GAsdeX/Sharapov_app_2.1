@@ -1,3 +1,21 @@
-<div class="" ng-controller="operationsController">
-  <h1>HOORAY!!</h1>
+<div class="section3" ng-controller="operationsController">
+  <div class="container">
+    <div class="sectionTitle">
+      Услуги
+    </div>
+    <ul class="categories-cards" ng-repeat="operation in operations.data">
+      <li class="card">
+
+        <a href="#!/getoperationDescription" ng-click="setOperationDescription(operation)">
+          <div class="top-bar">
+          </div>
+          <div class="bottom-bar">
+            <p>{{operation.title}}</p>
+          </div>
+        </a>
+        <!-- {{operation}} -->
+      </li>
+    </ul>
+
+  </div>
 </div>

@@ -2,10 +2,22 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const OdjectID = require('mongodb').ObjectID;
-const app = express();
+var upload =require('express-fileupload');
+
+
+var app = express();
 app.use(bodyParser.urlencoded({
     express: true
 }));
+
+
+app.use(upload())
+
+app.use(express.static('node_modules/purecss/build'));
+app.use('/public', express.static('public'));
+app.use(express.static('node_modules/angular'));
+app.use(express.static('node_modules/angular-route'));
+app.use(express.static('app'));
 
 var db;
 
@@ -18,7 +30,6 @@ app.get('/', function(req, res) {
         // console.log(cursor);
 });
 
-
 app.get('/categories', function(req, res) {
     db.collection('categories').find().toArray(function(err, result) {
         if (err) console.log(err);
@@ -28,7 +39,6 @@ app.get('/categories', function(req, res) {
     });
 });
 
-
 app.get('/operations', function(req, res){
   db.collection('operations').find().toArray(function(err, result){
     if (err) console.log(err);
@@ -36,8 +46,8 @@ app.get('/operations', function(req, res){
   });
 });
 
-
 app.get('/operations/:parent', function(req, res) {
+
     console.log(req.params);
     db.collection('operations').find({
         parent: req.params.parent
@@ -49,28 +59,56 @@ app.get('/operations/:parent', function(req, res) {
     });
 });
 
+app.post('/consultation', function(req, res){
+  console.log(req.body);
+  db.collection('consultation').insert((err, result) => {
+    if (err) throw err;
+    else return(result)
+  });
+})
 
-// app.put('operations/:id', function(req, res) {
-//     console.log();
-//     db.colection('operations').updateOne({
-//         _id: ObjectID(req.params.id)
-//     }, function(err, result) {
-//         if (err) console.log(err);
-//         else res.sendStatus(200);
-//     });
-// });
+app.get('/consultation', function(req,res){
+  db.collection('consultation').find().toArray(function(err,result){
+    if (err) throw err;
+    else res.send(result)
+  });
+})
 
-
-app.get('/operations/:parent/:id', function(req, res) {
-    db.collection('operations').findOne(function(err, result) {
-        if (err) console.log(err);
-        else {
-            res.send(result)
-        }
-    });
+app.get('/operations/:parent/:_id', function(req,res){
+  db.collection('operations').find({
+    parent : req.params.parent
+  }).toArray(function(err, result) {
+    if (err) throw err;
+    else res.send(result)
+  });
 });
 
+app.post('/admin/imageToSlider/:perent', function(req, res){
+  // console.log(req);
 
+  if (req.files) {
+    console.log(req.files);
+    var file = req.files.file;
+    var filename = file.name;
+
+    file.mv('./public/img/form-data/' + filename, function(err){
+      if (err) throw err;
+      else {
+        db.collection('categories').find({
+          _id : req.params.perent
+        }).insert({imgPath : filename})
+      }
+    })
+  }
+})
+
+app.post('/admin/imageToCategory', function(req, res){
+
+})
+
+app.post('/admin/imageToOperation', function(req, res){
+
+})
 
 MongoClient.connect('mongodb://localhost:27017/test', function(err, database) {
     if (err) {
@@ -78,7 +116,7 @@ MongoClient.connect('mongodb://localhost:27017/test', function(err, database) {
         return res.sendStatus(500)
     } else {
         db = database;
-        app.listen(3000, function() {
+        app.listen(3001, function() {
             console.log('done');
 
         })

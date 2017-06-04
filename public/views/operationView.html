@@ -1,0 +1,27 @@
+<div class="section3" ng-controller="operationnViewController">
+  <div class="container">
+    <div class="sectionTitle">
+      Услуги
+    </div>
+    <div class="operationTitle">
+      {{operation.title}}
+    </div>
+
+    <div class="description-wrapper">
+      <div class="left-bar">
+        <p>{{operation.text}}</p>
+      </div>
+      <form method="POST" action="/consultation" class="right-bar">
+        <div class="wrapper">
+          <input class="name" id='set-name' type="text" name="name" placeholder="" value="">
+          <input class="mail" type="text" name="mail" placeholder="" value="">
+          <input class="phone" type="text" name="phone" placeholder="" value="">
+          <textarea class="message" name="text" rows="12" placeholder="" cols="80"></textarea>
+          <button class='submit' type="submit"  value="">Отправить</button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>

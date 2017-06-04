@@ -50,11 +50,28 @@
       <div class="sectionTitle">
         Услуги
       </div>
-      <div class="options-cards">
+      <ul class="options-cards" ng-repeat="categorie in categories.data">
         <!-- <div ng-repeat="i in categories" class="card">
-
         </div> -->
-      </div>
+
+        <li class="card">
+
+          <div class="left-bar">
+
+            <div class="avatar">
+
+            </div>
+          </div>
+          <div class="right-bar">
+            <div class="top-bar">
+
+            </div>
+            <a href="#!/getoperations" ng-click='setOperations(categorie.name)' class="bottom-bar">
+              <p>{{categorie.title}}</p>
+            </a>
+          </div>
+        </li>
+      </ul>
     </div>
 
   </div>

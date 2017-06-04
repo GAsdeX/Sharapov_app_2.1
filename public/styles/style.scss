@@ -1,26 +1,51 @@
 @import "fonts.css";
 
-
-html, body, p, ul, li, a, button {
+a,
+body,
+button,
+html,
+li,
+p,
+ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	text-decoration: none;
 	border: 0;
-
 }
-
 @mixin phrase {
 	display: flex;
-  height: 200px;
-  background: #64760F;
-  p {
-    max-width: 600px;
-    margin: auto;
-    font-family: 'SegoeUISemiBold';
-    color: #f6f7f1;
-    font-size: 28px;
-  }
+	height: 200px;
+	background: #64760F;
+
+	p {
+		max-width: 600px;
+		margin: auto;
+		font-family: 'SegoeUISemiBold';
+		color: #f6f7f1;
+		font-size: 28px;
+	}
+}
+
+.operationTitle {
+	font-size: 18px;
+	text-transform: uppercase;
+	font-family: 'SegoeUIRegular';
+	margin-left: 35px;
+	padding: 20px 0;
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		background: #B2C458;
+		left: -14px;
+		top: 50%;
+		transform: translateY(-81%);
+		width: 3px;
+		height: 91px;
+		// border-radius: 100%;
+	}
 }
 
 .sectionTitle {
@@ -35,6 +60,7 @@ html, body, p, ul, li, a, button {
 		content: '';
 		position: absolute;
 		background: #738A00;
+		z-index: 3;
 		left: -40px;
 		top: 50%;
 		transform: translateY(-50%);
@@ -50,7 +76,7 @@ html, body, p, ul, li, a, button {
 	margin: 0 auto;
 	position: relative;
 	height: 100%;
-  overflow: hidden;
+	overflow: hidden;
 }
 
 .section-1 {
@@ -58,68 +84,73 @@ html, body, p, ul, li, a, button {
 	background: #f6f7f1;
 	height: 100vh;
 	min-height: 550px;
-  .site-top {
-    width: 1200px;
-    height: 120px;
-    position: fixed;
 
-    .top-bar {
-      overflow: auto;
+	.site-top {
+		width: 1200px;
+		height: 120px;
+		position: fixed;
 
-      .logo {
-        float: left;
-      }
-      .nav-bar {
-        // right: 0;
-        width: auto;
-        display: inline-block;
-        float: right;
-        ul {
-          display: table-cell;
-          vertical-align: middle;
-          height: 120px;
-          li {
-            float: left;
-            p {
-              font-family: "MartaRegular";
-              color: #4d4a43;
-              padding: 10px 19px;
-              font-size: 20px;
-            }
-            &:hover {
-              p {
-                background: #2e2b24;
-                color: #d9ab79;
-              }
-            }
-          }
-        }
-      }
+		.top-bar {
+			overflow: auto;
 
+			.logo {
+				float: left;
+			}
 
-    }
+			.nav-bar {
+				// right: 0;
+				width: auto;
+				display: inline-block;
+				float: right;
 
-  }
-  .person-avatar{
-    width: 50%;
-    height: 100%;
-    float: right;
-    display: block;
-    position: relative;
-    .avatar {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      height: 90%;
+				ul {
+					display: table-cell;
+					vertical-align: middle;
+					height: 120px;
 
-      img {
-        height: 100%;
-        width: auto;
-        transform: translateX(-39%);
-      }
-    }
-  }
+					li {
+						float: left;
+
+						p {
+							font-family: "MartaRegular";
+							color: #4d4a43;
+							padding: 10px 19px;
+							font-size: 20px;
+						}
+
+						&:hover {
+							p {
+								background: #2e2b24;
+								color: #d9ab79;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.person-avatar {
+		width: 50%;
+		height: 100%;
+		float: right;
+		display: block;
+		position: relative;
+
+		.avatar {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			height: 90%;
+
+			img {
+				height: 100%;
+				width: auto;
+				transform: translateX(-39%);
+			}
+		}
+	}
 
 	.person-presentation {
 		position: absolute;
@@ -129,16 +160,19 @@ html, body, p, ul, li, a, button {
 		padding-left: 60px;
 		box-sizing: border-box;
 		border-left: 1px solid black;
+
 		.name {
 			font-family: "AlfiosRegular";
 			font-size: 30px;
 		}
+
 		.last-name {
 			font-family: 'AlfiosRegular';
 			font-size: 55px;
-	    letter-spacing: 2px;
+			letter-spacing: 2px;
 			margin-top: -15px;
 		}
+
 		.footer-section-text {
 			font-family: 'P22Underground';
 			margin-top: -5px;
@@ -147,17 +181,18 @@ html, body, p, ul, li, a, button {
 
 		.circles {
 			overflow: auto;
-			width:143px;
+			width: 143px;
 			display: flex;
 			flex-flow: row wrap;
 			justify-content: space-between;
-			.circle {
 
+			.circle {
 				// flex-wrap:wrap;
 				border-radius: 100%;
 				height: 25px;
 				width: 25px;
 				background: #c7c3b8;
+
 				&:nth-child(1) {
 					background: #e8a765;
 				}
@@ -173,8 +208,6 @@ html, body, p, ul, li, a, button {
 			cursor: pointer;
 		}
 	}
-
-
 }
 
 .section-1_1 {
@@ -186,37 +219,40 @@ html, body, p, ul, li, a, button {
 	background: #f6f7f1;
 	height: 100vh;
 	min-height: 550px;
-  .left-bar{
-    width: 50%;
-    height: 100%;
-    float: left;
-    display: block;
-    position: relative;
-    .avatar {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 80%;
 
-      img {
-        transform: translateX(-20%);
-        height: 100%;
-        width: auto;
-      }
-    }
-  }
-  .right-bar {
-    width: 50%;
-    height: 100%;
-    min-height: 100px;
-    float: left;
-    display: flex;
+	.left-bar {
+		width: 50%;
+		height: 100%;
+		float: left;
+		display: block;
+		position: relative;
 
-    .description {
-      padding: 15px;
-      margin: auto 0;
-      font-family: 'SegoeUIRegular';
+		.avatar {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 80%;
+
+			img {
+				transform: translateX(-20%);
+				height: 100%;
+				width: auto;
+			}
+		}
+	}
+
+	.right-bar {
+		width: 50%;
+		height: 100%;
+		min-height: 100px;
+		float: left;
+		display: flex;
+
+		.description {
+			padding: 15px;
+			margin: auto 0;
+			font-family: 'SegoeUIRegular';
 			position: relative;
 			text-align: justify;
 			font-size: 16px;
@@ -231,10 +267,9 @@ html, body, p, ul, li, a, button {
 				cursor: pointer;
 				display: inline-block;
 				float: right;
-
 			}
-    }
-  }
+		}
+	}
 }
 
 .section-2_1 {
@@ -242,14 +277,287 @@ html, body, p, ul, li, a, button {
 }
 
 .section3 {
-	height: 100vh;
+	// height: 100vh;
 	min-height: 500px;
-	.title {
 
+	.title {}
+
+	.options-cards {
+		width: 100%;
+		// height: 100%
+		.card {
+			// box-shadow: 0 0 10px rgba(0,0,0,0.5);
+			padding: 15px;
+			width: 50%;
+			height: 400px;
+			float: left;
+			overflow: hidden;
+			box-sizing: border-box;
+			transition: all 0.2s ease-in-out;
+
+			& > * {
+				height: 100%;
+				width: 50%;
+				float: left;
+			}
+
+			.left-bar {
+				background: #FDFED6;
+				position: relative;
+
+				.avatar {
+					position: absolute;
+					bottom: 0;
+					top: 0;
+					transform: translateX(-50%);
+					left: 50%;
+				}
+			}
+
+			.right-bar {
+				.top-bar {
+					height: 70%;
+					width: 100%;
+					background: #FDFED6;
+				}
+
+				.bottom-bar {
+					text-decoration: none;
+					overflow: hidden;
+					height: 30%;
+					width: 100%;
+					background: #B0F1C4;
+					display: flex;
+
+					p {
+						margin: auto 0 auto auto;
+						background: #269347;
+						float: left;
+						font-family: 'SegoeUIBold';
+						color: #FDFED6;
+						text-transform: uppercase;
+						font-size: 18px;
+						box-shadow: 0 0 10px rgba(0,0,0,0.5);
+						padding: 7px 40px 7px 20px;
+						transform: translateX(10px);
+						transition: transform 0.1s ease-in-out;
+						// box-shadow:
+					}
+				}
+			}
+
+			&:hover {
+				.right-bar .bottom-bar p {
+					transform: translateX(0);
+				}
+			}
+		}
 	}
 
-	.cards {
+	.categories-cards {
 		width: 100%;
-		height: 100%
+		// height: 100%
+		.card {
+			// box-shadow: 0 0 10px rgba(0,0,0,0.5);
+			padding: 15px;
+			width: 25%;
+			height: 350px;
+			float: left;
+			overflow: hidden;
+			box-sizing: border-box;
+			transition: all 0.2s ease-in-out;
+			cursor: pointer;
+
+			.top-bar {
+				background: #FDFED6;
+				position: relative;
+				width: 100%;
+				height: 70%;
+
+				.avatar {
+					position: absolute;
+					bottom: 0;
+					top: 0;
+					transform: translateX(-50%);
+					left: 50%;
+				}
+			}
+
+			.bottom-bar {
+				height: 30%;
+				text-decoration: none;
+				overflow: hidden;
+				// height: 30%;
+				width: 100%;
+				background: #15A06B;
+				display: flex;
+
+				p {
+					margin: auto 0 auto auto;
+					// background: #269347;
+					float: left;
+					font-family: 'SegoeUIRegular';
+					color: #FDFED6;
+					text-align: center;
+					text-transform: uppercase;
+					font-size: 16px;
+					// box-shadow: 0 0 10px rgba(0,0,0,0.5);
+					padding: 7px 30px 7px 20px;
+					width: 100%;
+					// transform: translateX(-10px);
+				}
+			}
+
+			&:hover {
+				.right-bar p {
+					padding-right: 35px;
+				}
+			}
+		}
+	}
+
+	.description-wrapper {
+		position: relative;
+
+		.left-bar {
+			width: 60%;
+			float: left;
+			padding: 0 15px;
+
+			p {
+				font-family: 'SegoeUIRegular';
+				font-size: 17px;
+				text-align: justify;
+				margin-top: 40px;
+			}
+
+			ul {
+				li {
+
+				}
+			}
+		}
+
+		.right-bar {
+			width: 37%;
+			float: right;
+			height: 400px;
+			background: #738A00;
+			min-height: 450px;
+			padding: 15px;
+			box-sizing: border-box;
+			display: block;
+
+			input,
+			textarea {
+				font-size: 20px;
+				padding: 7px 15px;
+				width: 100%;
+				resize: none;
+				position: relative;
+				display: inline-block;
+			}
+			textarea {
+				font-size: 14px;
+			}
+
+			#set-name {
+				&::before {
+					// content: "";
+					// position: absolute;
+					// height: 50px;
+					// width: 50px;
+					// background: black;
+					font-family: "Ionicons";
+					content: "f1c9";
+					padding-left: 10px;
+					// background: url('public/img/user-name.png');
+				}
+			}
+
+			.wrapper {
+				height: 100%;
+				float: right;
+				width: 80%;
+				display: flex;
+				flex-direction: column;
+				align-content: space-between;
+				flex-flow: wrap;
+				text-align: right;
+
+
+			}
+
+			.submit {
+				background: white;
+				height: 41px;
+				width: 100%;
+				text-transform: uppercase;
+				font-size: 20px;
+				cursor: pointer;
+			}
+
+			.mail {}
+
+			.phone {}
+
+			.message {}
+			// textarea {
+			// 	padding: 7px 15px;
+			// }
+		}
 	}
 }
+
+.section4 {}
+
+.admin {
+	.left-bar{
+		width: 50%;
+		height: 500px;
+		float: left;
+	}
+	.right-bar {
+		float: left;
+		width: 50%;
+		max-height: 90vh;
+		overflow-y: scroll;
+			.post {
+				width: 100%;
+				padding: 15px;
+				box-sizing: border-box;
+				display: block;
+				.card {
+					box-shadow:  1px 1px 4px black;
+					padding: 15px;
+					box-sizing: border-box;
+					// display: block;
+					overflow: auto;
+					.title {
+						font-family: 'SegoeUIRegular';
+
+					}
+
+					.description {
+						padding: 15px;
+						box-sizing: border-box;
+						font-family: 'SegoeUIRegular';
+						border-top: 1px solid grey;
+					}
+
+					.contacts {
+						float: right;
+						// height: 100px;
+						display: block;
+						& > * {
+							font-family: 'SegoeUIRegular';
+							color: blue;
+						}
+						.name {
+							color: black;
+						}
+					}
+				}
+			}
+		}
+	}

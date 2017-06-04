@@ -1,0 +1,50 @@
+.admin {
+	.left-bar{
+		width: 50%;
+		height: 500px;
+		float: left;
+	}
+	.right-bar {
+		float: left;
+		width: 50%;
+		max-height: 90vh;
+		overflow-y: scroll;
+			.post {
+				width: 100%;
+				padding: 15px;
+				box-sizing: border-box;
+				display: block;
+				.card {
+					box-shadow:  1px 1px 4px black;
+					padding: 15px;
+					box-sizing: border-box;
+					// display: block;
+					overflow: auto;
+					.title {
+						font-family: 'SegoeUIRegular';
+
+					}
+
+					.description {
+						padding: 15px;
+						box-sizing: border-box;
+						font-family: 'SegoeUIRegular';
+						border-top: 1px solid grey;
+					}
+
+					.contacts {
+						float: right;
+						// height: 100px;
+						display: block;
+						& > * {
+							font-family: 'SegoeUIRegular';
+							color: blue;
+						}
+						.name {
+							color: black;
+						}
+					}
+				}
+			}
+		}
+	}

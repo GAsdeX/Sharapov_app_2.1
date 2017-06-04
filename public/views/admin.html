@@ -1,0 +1,31 @@
+<div class="admin" ng-controller="adminController">
+  <div class="container">
+    <div class="left-bar">
+      <form class="" action="/admin/imageToSlider/1" enctype="multipart/form-data" method="post">
+        <input type="file" name="file" value="">
+        <input type="submit" name="submit" value="Sybmit">
+      </form>
+    </div>
+    <div class="right-bar">
+      <div class="post" ng-repeat='consultation in consultations'>
+        <div class="card">
+          <div class="title">{{consultation.name}}</div>
+          <div class="description">
+            {{consultation.text}}
+          </div>
+
+          <div class="date">
+            {{consultetion.date}}
+          </div>
+
+          <div class="contacts">
+            <div class="name"> {{consultation.name}}</div>
+            <div class="phone">Phone: {{consultation.phone}}</div>
+            <div class="mail">E-mail: {{consultation.mail}}</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
