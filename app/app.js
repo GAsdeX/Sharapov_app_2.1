@@ -22,7 +22,7 @@
                 templateUrl: 'public/views/auth.html',
                 controller: "authController"
             }).when('/admin', {
-                templateUrl: 'public/views/admin.html',
+                templateUrl: 'admin/admin.html',
                 controller: "adminController"
             }).when('/consultation', {
                 templateUrl: 'public/views/consultation.html',

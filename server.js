@@ -18,6 +18,7 @@ app.use('/public', express.static('public'));
 app.use(express.static('node_modules/angular'));
 app.use(express.static('node_modules/angular-route'));
 app.use(express.static('app'));
+app.use(express.static('admin'));
 
 var db;
 
